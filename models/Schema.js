@@ -1,7 +1,11 @@
-//schema mongoDb
+// //schema mongoDb
 const mongoose = require("mongoose");
 
-const usersSchema = new mongoose.Schema({
+const UserSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+  },
   email: {
     type: String,
     required: true,
@@ -10,7 +14,12 @@ const usersSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+
+  date: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
 //module exports
-module.exports = mongoose.model("Users", usersSchema);
+module.exports = mongoose.model("Users", UserSchema);
